@@ -20,11 +20,10 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT4Kids - 9 режимов с регистрацией</title>
+    <title>IT4Kids - 9 режимов обучения</title>
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- Для более современных браузеров и устройств -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -39,55 +38,58 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- ВИДЕО-БЛОК С ФОРМОЙ ПОВЕРХ -->
+    <!-- ВИДЕО-ФОН -->
     <div class="hero-video">
         <video autoplay muted loop playsinline>
-            <!-- ВИДЕО УЖЕ ЗАГРУЖЕНО НА GITHUB -->
             <source src="background.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
         <div class="overlay"></div>
-        
-        <!-- ФОРМА АВТОРИЗАЦИИ ПОВЕРХ ВИДЕО -->
-        <div class="hero-content">
-            <div class="auth-container" style="background: rgba(255, 255, 255, 0.95); box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
-                <h1><i class="fas fa-graduation-cap"></i> IT4Kids</h1>
-                <p style="margin-bottom: 30px; color: #666;">Войдите или зарегистрируйтесь для доступа ко всем режимам</p>
-                
-                <div id="login-form" class="auth-form active">
-                    <h2>Вход</h2>
-                    <input type="text" id="login-username" class="auth-input" placeholder="Имя пользователя" required>
-                    <input type="password" id="login-password" class="auth-input" placeholder="Пароль" required>
-                    <button class="action-btn" id="login-btn" style="width: 100%;">
-                        <i class="fas fa-sign-in-alt"></i> Войти
-                    </button>
-                    <div class="auth-switch" id="switch-to-register">Нет аккаунта? Зарегистрируйтесь</div>
-                </div>
-                
-                <div id="register-form" class="auth-form">
-                    <h2>Регистрация</h2>
-                    <input type="text" id="register-username" class="auth-input" placeholder="Имя пользователя" required>
-                    <input type="password" id="register-password" class="auth-input" placeholder="Пароль" required>
-                    <input type="password" id="register-confirm" class="auth-input" placeholder="Подтвердите пароль" required>
-                    <button class="action-btn secondary" id="register-btn" style="width: 100%;">
-                        <i class="fas fa-user-plus"></i> Зарегистрироваться
-                    </button>
-                    <div class="auth-switch" id="switch-to-login">Уже есть аккаунт? Войти</div>
-                </div>
-                
-                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-                    <p style="font-size: 0.9rem; color: #666;">
-                        <i class="fas fa-info-circle"></i> После регистрации вы получите доступ ко всем 9 режимам обучения
-                    </p>
-                </div>
+    </div>
+
+    <!-- СЕКЦИЯ АВТОРИЗАЦИИ -->
+    <section id="auth-section">
+        <div class="auth-container">
+            <h1><i class="fas fa-graduation-cap"></i> IT4Kids</h1>
+            <p style="margin-bottom: 30px; color: #666;">Войдите или зарегистрируйтесь для доступа ко всем режимам</p>
+            
+            <div id="login-form" class="auth-form active">
+                <h2>Вход</h2>
+                <input type="text" id="login-username" class="auth-input" placeholder="Имя пользователя" required>
+                <input type="password" id="login-password" class="auth-input" placeholder="Пароль" required>
+                <div id="login-error" class="error-message"></div>
+                <button class="action-btn" id="login-btn" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Войти
+                </button>
+                <div class="auth-switch" id="switch-to-register">Нет аккаунта? Зарегистрируйтесь</div>
+            </div>
+            
+            <div id="register-form" class="auth-form">
+                <h2>Регистрация</h2>
+                <input type="text" id="register-username" class="auth-input" placeholder="Имя пользователя" required>
+                <input type="password" id="register-password" class="auth-input" placeholder="Пароль" required>
+                <input type="password" id="register-confirm" class="auth-input" placeholder="Подтвердите пароль" required>
+                <div id="register-error" class="error-message"></div>
+                <button class="action-btn secondary" id="register-btn" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i> Зарегистрироваться
+                </button>
+                <div class="auth-switch" id="switch-to-login">Уже есть аккаунт? Войти</div>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                <p style="font-size: 0.9rem; color: #666;">
+                    <i class="fas fa-info-circle"></i> После регистрации вы получите доступ ко всем 9 режимам обучения
+                </p>
+                <p style="font-size: 0.8rem; color: #999; margin-top: 10px;">
+                    Тестовый аккаунт: admin / admin123
+                </p>
             </div>
         </div>
-    </div>
-    <!-- ====================== -->
+    </section>
 
     <!-- Главное меню (скрыто, пока не войдете) -->
-    <div class="container">
-        <section id="main-menu" class="game-section">
+    <div class="container" style="display: none;" id="main-content">
+        <section id="main-menu" class="game-section active">
             <header class="game-header">
                 <div class="user-info">
                     <div class="user-name" id="current-username">Пользователь</div>
@@ -167,7 +169,7 @@
                     </div>
                 </div>
 
-                <!-- Режим 3: Тренажёр печатания -->
+                <!-- Режим 3 -->
                 <div class="mode-card" data-game="3">
                     <div class="mode-difficulty">Средне</div>
                     <div class="mode-icon">
@@ -182,7 +184,7 @@
                     </div>
                 </div>
 
-                <!-- Режим 4: Исторические тексты -->
+                <!-- Режим 4 -->
                 <div class="mode-card" data-game="4">
                     <div class="mode-difficulty">Средне</div>
                     <div class="mode-icon">
@@ -197,7 +199,7 @@
                     </div>
                 </div>
 
-                <!-- Режим 5: Научный текст -->
+                <!-- Режим 5 -->
                 <div class="mode-card" data-game="5">
                     <div class="mode-difficulty">Сложно</div>
                     <div class="mode-icon">
@@ -212,7 +214,7 @@
                     </div>
                 </div>
 
-                <!-- Режим 6: Поэзия -->
+                <!-- Режим 6 -->
                 <div class="mode-card" data-game="6">
                     <div class="mode-difficulty">Легко</div>
                     <div class="mode-icon">
@@ -227,7 +229,7 @@
                     </div>
                 </div>
 
-                <!-- Режим 7: Иностранный язык -->
+                <!-- Режим 7 -->
                 <div class="mode-card" data-game="7">
                     <div class="mode-difficulty">Средне</div>
                     <div class="mode-icon">
@@ -242,7 +244,7 @@
                     </div>
                 </div>
 
-                <!-- Режим 8: Текст с пропусками -->
+                <!-- Режим 8 -->
                 <div class="mode-card" data-game="8">
                     <div class="mode-difficulty">Средне</div>
                     <div class="mode-icon">
@@ -257,7 +259,7 @@
                     </div>
                 </div>
 
-                <!-- Режим 9: Тест скорости чтения -->
+                <!-- Режим 9 -->
                 <div class="mode-card" data-game="9">
                     <div class="mode-difficulty">Легко</div>
                     <div class="mode-icon">
@@ -601,7 +603,6 @@
         <div class="modal-content">
             <button class="close-modal" id="closeStatsModal">×</button>
             <h2><i class="fas fa-chart-bar"></i> Ваша статистика</h2>
-            
             <div class="stats-details" id="statsDetails">
                 <!-- Статистика будет загружена динамически -->
             </div>
@@ -609,7 +610,7 @@
     </div>
 
     <!-- Модальное окно для ответов -->
-    <div class="modal" id="answersModal" style="display: none;">
+    <div class="modal" id="answersModal">
         <div class="modal-content" style="max-width: 700px;">
             <button class="close-modal" id="closeAnswersModal">×</button>
             <div id="answersContent"></div>
