@@ -39,7 +39,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- ВИДЕО-БЛОК НА ПЕРВОМ ЭКРАНЕ -->
+    <!-- ВИДЕО-БЛОК С ФОРМОЙ ПОВЕРХ -->
     <div class="hero-video">
         <video autoplay muted loop playsinline>
             <!-- ВИДЕО УЖЕ ЗАГРУЖЕНО НА GITHUB -->
@@ -48,50 +48,44 @@
         </video>
         <div class="overlay"></div>
         
+        <!-- ФОРМА АВТОРИЗАЦИИ ПОВЕРХ ВИДЕО -->
         <div class="hero-content">
-            <h1><i class="fas fa-graduation-cap"></i> IT4Kids</h1>
-            <p>Обучение через игру и современные технологии</p>
-            <a href="#auth-section" class="scroll-btn">Начать обучение ↓</a>
+            <div class="auth-container" style="background: rgba(255, 255, 255, 0.95); box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
+                <h1><i class="fas fa-graduation-cap"></i> IT4Kids</h1>
+                <p style="margin-bottom: 30px; color: #666;">Войдите или зарегистрируйтесь для доступа ко всем режимам</p>
+                
+                <div id="login-form" class="auth-form active">
+                    <h2>Вход</h2>
+                    <input type="text" id="login-username" class="auth-input" placeholder="Имя пользователя" required>
+                    <input type="password" id="login-password" class="auth-input" placeholder="Пароль" required>
+                    <button class="action-btn" id="login-btn" style="width: 100%;">
+                        <i class="fas fa-sign-in-alt"></i> Войти
+                    </button>
+                    <div class="auth-switch" id="switch-to-register">Нет аккаунта? Зарегистрируйтесь</div>
+                </div>
+                
+                <div id="register-form" class="auth-form">
+                    <h2>Регистрация</h2>
+                    <input type="text" id="register-username" class="auth-input" placeholder="Имя пользователя" required>
+                    <input type="password" id="register-password" class="auth-input" placeholder="Пароль" required>
+                    <input type="password" id="register-confirm" class="auth-input" placeholder="Подтвердите пароль" required>
+                    <button class="action-btn secondary" id="register-btn" style="width: 100%;">
+                        <i class="fas fa-user-plus"></i> Зарегистрироваться
+                    </button>
+                    <div class="auth-switch" id="switch-to-login">Уже есть аккаунт? Войти</div>
+                </div>
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <p style="font-size: 0.9rem; color: #666;">
+                        <i class="fas fa-info-circle"></i> После регистрации вы получите доступ ко всем 9 режимам обучения
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ====================== -->
 
-    <!-- Форма авторизации -->
-    <section id="auth-section" class="game-section active">
-        <div class="auth-container">
-            <h1><i class="fas fa-graduation-cap"></i> IT4Kids</h1>
-            <p style="margin-bottom: 30px; color: #666;">Войдите или зарегистрируйтесь для доступа ко всем режимам</p>
-            
-            <div id="login-form" class="auth-form active">
-                <h2>Вход</h2>
-                <input type="text" id="login-username" class="auth-input" placeholder="Имя пользователя" required>
-                <input type="password" id="login-password" class="auth-input" placeholder="Пароль" required>
-                <button class="action-btn" id="login-btn" style="width: 100%;">
-                    <i class="fas fa-sign-in-alt"></i> Войти
-                </button>
-                <div class="auth-switch" id="switch-to-register">Нет аккаунта? Зарегистрируйтесь</div>
-            </div>
-            
-            <div id="register-form" class="auth-form">
-                <h2>Регистрация</h2>
-                <input type="text" id="register-username" class="auth-input" placeholder="Имя пользователя" required>
-                <input type="password" id="register-password" class="auth-input" placeholder="Пароль" required>
-                <input type="password" id="register-confirm" class="auth-input" placeholder="Подтвердите пароль" required>
-                <button class="action-btn secondary" id="register-btn" style="width: 100%;">
-                    <i class="fas fa-user-plus"></i> Зарегистрироваться
-                </button>
-                <div class="auth-switch" id="switch-to-login">Уже есть аккаунт? Войти</div>
-            </div>
-            
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-                <p style="font-size: 0.9rem; color: #666;">
-                    <i class="fas fa-info-circle"></i> После регистрации вы получите доступ ко всем 9 режимам обучения
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Главное меню -->
+    <!-- Главное меню (скрыто, пока не войдете) -->
     <div class="container">
         <section id="main-menu" class="game-section">
             <header class="game-header">
